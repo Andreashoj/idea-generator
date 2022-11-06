@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import axios, { AxiosResponse } from "axios";
+import axios, { type AxiosResponse } from "axios";
 
 const value = ref<String>("");
 const data = ref<String>("");
@@ -37,7 +37,7 @@ const getData = async () => {
         </button>
       </div>
 
-      <div class="flex">
+      <div class="flex items-center">
         <svg
           class="scale-50"
           xmlns="http://www.w3.org/2000/svg"
@@ -314,16 +314,10 @@ const getData = async () => {
             />
           </g>
         </svg>
-        <span
-          v-if="data.length === 0 && !loading"
-          class="flex items-center text-white"
-        >
+        <span v-if="data.length === 0 && !loading" class="flex text-white">
           HELLO..
         </span>
-        <span
-          v-if="!loading"
-          class="text-gray-300 text-center w-64 flex items-center"
-        >
+        <span v-if="!loading" class="text-gray-300 text-center w-64">
           {{ data }}
         </span>
         <span v-else class="text-gray-300 w-96 mt-5 ml-4">loading..</span>
